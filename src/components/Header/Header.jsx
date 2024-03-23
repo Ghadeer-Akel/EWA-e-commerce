@@ -1,10 +1,10 @@
 import {TbSearch, TbShoppingBagSearch, TbShoppingCart} from 'react-icons/tb';
 import './Header.css';
 import {Link} from 'react-router-dom';
-import { useCart } from '../../contexts/CartContex';
+import {useCart} from '../../contexts/CartContex';
 
 const Header = () => {
-  const {cartItems}= useCart();
+  const {cartItems} = useCart ();
   return (
     <div className="header">
       <Link to="/">
@@ -18,7 +18,7 @@ const Header = () => {
         <div className="search-input">
           <input type="text" placeholder="Search" /><TbSearch />
         </div>
-        <Link to='/cart'>
+        <Link to="/cart">
           <div className="cart">
             <TbShoppingCart className="cart-icon" />
             <span>{cartItems.length}</span>

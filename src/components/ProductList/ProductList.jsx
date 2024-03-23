@@ -3,12 +3,12 @@ import ProductCard from '../ProductCard/ProductCard';
 import './ProductList.css';
 
 const ProductList = () => {
-  const {products , loading} = useProduct ();
+  const {filteredProducts , loading} = useProduct ();
   return (
     <div className="product-list">
     {loading?<p>Loading...</p>:(
       <>
-      {products.map ((product, index) => (
+      {filteredProducts.map ((product, index) => (
         <ProductCard key={index} product={product} />
       ))}
       </>

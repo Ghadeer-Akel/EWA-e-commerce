@@ -11,7 +11,7 @@ const Item = ({item,handleRemove,handleAdd,handleRemoveQuantity }) => {
         <div className="item-image">
           <img src={item.image} alt="item image" />
         </div>
-        <div className="item-title">{item.title}</div>
+        <div className="item-title">{item.name}</div>
       </div>
       <div className="item-info">
         <div className="item-unit-price">${item.price}</div>

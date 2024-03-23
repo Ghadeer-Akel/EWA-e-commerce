@@ -1,15 +1,15 @@
-.category-list{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin: 15px;
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 15px;
 }
 
 @media (width<1000px) {
-    .category-list{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+  .category-list {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

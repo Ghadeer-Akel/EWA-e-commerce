@@ -4,40 +4,58 @@ import {useParams} from 'react-router-dom';
 const ProductContext = createContext ();
 
 export const ProductProvider = ({children}) => {
+  const [categories, setCategories] = useState ([]);
   const [products, setProducts] = useState ([]);
-  const [loading, setLoading] = useState (false);
+  const [filteredProducts, setFilteredProducts] = useState (products);
+  const [thereProduct, setThereProduct] = useState ();
 
-  const {category} = useParams ();
-  // console.log(products);
-  const getProducts = async (category) => {
-    setLoading(true)
-    try {
-      let url = 'https://fakestoreapi.com/products';
-      if (category) {
-        url += `/category/${category}/?limit=4`;
-      } 
-      else {
-        url += '?limited=4';
-      }
-       await fetch (url)
-      .then((respons)=>respons.json())
-      .then((data)=>setProducts (data));
-    //   if (res.ok) {
-    //     setProducts (data);
-    //     setLoading (false);
-    //   }
-    } catch (err) {
-      console.error (err);
-    } finally {
-      setLoading (false);
+  useEffect (() => {
+    // Fetch categories
+    fetch ('https://ewaiq.com/public/api/v1/categories/featured')
+      .then (response => response.json ())
+      .then (data => {
+        setCategories (data.data);
+      })
+      .catch (error => {
+        console.error ('Error fetching categories:', error);
+      });
+
+    // Fetch featured products
+    fetch ('https://ewaiq.com/public/api/v1/products/featured')
+      .then (response => response.json ())
+      .then (data => {
+        setProducts (data.data.data);
+        setFilteredProducts (data.data.data); // Initialize filtered products with all products
+      })
+      .catch (error => {
+        console.error ('Error fetching products:', error);
+      });
+  }, []);
+
+  const filterProductsByCategory = categoryId => {
+    setThereProduct (false);
+    if (categoryId === 'all') {
+      setFilteredProducts (products);
+    } else {
+      const filtered = products.filter (product =>
+        product.categories.find (category => category.id == categoryId)
+      );
+      setFilteredProducts (filtered);
     }
   };
 
-  useEffect(()=>{
-    getProducts(category)
-  },[category])
   return (
-    <ProductContext.Provider value={{products,loading}}>{children}</ProductContext.Provider>
+    <ProductContext.Provider
+      value={{
+        products,
+        categories,
+        filteredProducts,
+        filterProductsByCategory,
+        thereProduct,
+      }}
+    >
+      {children}
+    </ProductContext.Provider>
   );
 };
 

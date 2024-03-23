@@ -1,11 +1,11 @@
-import CartContainer from "../components/Cart/CartContainer"
+import CartContainer from '../components/Cart/CartContainer';
 
 const Cart = () => {
   return (
     <div>
-        <CartContainer/>
+      <CartContainer />
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

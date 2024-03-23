@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -8,38 +8,40 @@
   outline: none;
   font-family: "Montserrat" sans-serif;
 }
-body{
+body {
   background-image: url("./assets/bg.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
 
-.main-content{
+.main-content {
   display: flex;
   justify-content: space-around;
   padding: 4rem 5%;
   overflow: hidden;
 }
 
-.section-title{
+.section-title {
   color: #344955;
   font-size: 40px;
   font-weight: 900;
 }
 
-.products, .category{
+.products,
+.category {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.cart-page, .detail-page{
+.cart-page,
+.detail-page {
   padding: 2rem 5%;
 }
 
 @media (width<1000px) {
-  .main-content{
+  .main-content {
     display: flex;
     flex-direction: column;
     padding: 4rem 5%;
@@ -47,11 +49,11 @@ body{
 }
 
 @media (width<1000px) {
-  .main-content{
+  .main-content {
     flex-direction: column;
   }
 
-  .category{
+  .category {
     flex-direction: column;
     order: -1;
   }

@@ -5,14 +5,6 @@ import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
 
 const ProductCard = ({product}) => {
-  //   const[ewa,setEwa]=useState();
-
-  //   useEffect(()=>{
-  //     fetch('https://ewaiq.com/public/api/v1/categories/featured')
-  //     .then((res)=>res.json())
-  //     .then((data)=>setEwa(data))
-  //   },[]);
-  // console.log(ewa.name);
   const {addToCart} = useCart ();
 
   const handleAdd = product => {
@@ -33,8 +25,8 @@ const ProductCard = ({product}) => {
       </Link>
 
       <div className="card-details">
-        <h4 className="card-title">{product.title}</h4>
-        <div className="card-category">{product.category}</div>
+        <h4 className="card-title">{product.name}</h4>
+        <div className="card-category">{product.categories.name}</div>
 
         <div className="card-flex">
           <div className="card-price">{product.price}$</div>

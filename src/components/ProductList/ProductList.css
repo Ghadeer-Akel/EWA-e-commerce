@@ -1,14 +1,14 @@
-.product-list{
-    display: flex;
-    gap: 20px;
-    margin: 20px;
-    flex-wrap: wrap;
+.product-list {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+  flex-wrap: wrap;
 }
 
 @media (width<1000px) {
-    .product-list{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: row;
-    }
+  .product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
 }
