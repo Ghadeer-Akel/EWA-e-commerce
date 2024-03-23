@@ -1,0 +1,21 @@
+import {useProduct} from '../../contexts/ProductContext';
+import ProductCard from '../ProductCard/ProductCard';
+import './ProductList.css';
+
+const ProductList = () => {
+  const {products , loading} = useProduct ();
+  return (
+    <div className="product-list">
+    {loading?<p>Loading...</p>:(
+      <>
+      {products.map ((product, index) => (
+        <ProductCard key={index} product={product} />
+      ))}
+      </>
+
+    )}
+    </div>
+  );
+};
+
+export default ProductList;
