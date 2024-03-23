@@ -20,7 +20,7 @@ const ProductCard = ({product}) => {
       <Link to={`/product/${product.id}`}>
 
         <div className="card-image">
-          <img src={product.image} alt="product image" />
+          <img src={`https://ewaiq.com/storage/${product.image}`} alt={product.name}  />
         </div>
       </Link>
 

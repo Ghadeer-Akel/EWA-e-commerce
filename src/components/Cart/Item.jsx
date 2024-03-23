@@ -9,7 +9,7 @@ const Item = ({item,handleRemove,handleAdd,handleRemoveQuantity }) => {
     transition={{delay:0.3,duration:2}}>
       <div className="item-info">
         <div className="item-image">
-          <img src={item.image} alt="item image" />
+          <img src={`https://ewaiq.com/storage/${item.image}`} alt="item image" />
         </div>
         <div className="item-title">{item.name}</div>
       </div>

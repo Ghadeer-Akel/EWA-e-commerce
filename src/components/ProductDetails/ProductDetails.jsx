@@ -6,16 +6,21 @@ import {useProduct} from '../../contexts/ProductContext';
 import {useParams} from 'react-router-dom';
 
 const ProductDetails = () => {
+  const {addToCart} = useCart ();
   const {id} = useParams ();
-  const {products} = useProduct ();
+  const {products,loading} = useProduct ();
   let product = null;
 
   // Loop through products array to find the product with the matching ID
   for (let i = 0; i < products.length; i++) {
-    if (products[i].id !== parseInt (id)) {
+    if (products[i].id !== parseInt(id)) {
       product = products[i];
       break;
     }
+  }
+  // Check if product is found
+  if (!product) {
+    return <div>Loading...</div>;
   }
   console.log (product);
   // add to cart
@@ -30,7 +35,10 @@ const ProductDetails = () => {
       transition={{delay: 0.3, duration: 2}}
     >
       <div className="product-image">
-        <img src={product.image} alt={product.name} />
+        <img
+          src={`https://ewaiq.com/storage/${product.image}`}
+          alt={product.name}
+        />
       </div>
       <div className="product-details">
         <div className="product-category">{product.category}</div>
